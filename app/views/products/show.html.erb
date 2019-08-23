@@ -1,2 +1,28 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="row mt-3">
+  <div class="col-md-5">
+    <%= image_tag @product.picture_url, class: 'img-fluid' %>
+  </div>
+  <div class="col-md-6 offset-md-1">
+    <h1><%= @product.name %></h1>
+    <%= image_tag @product.user.avatar_url, class: 'rounded-circle mr-3', size: '30x30'  %>
+    <small>Auctioned by <%= @product.user.name %></small>
+    <div class="my-3"></div>
+    <p class="text-secondary">Initial Price: <strong><%= number_to_currency(@product.initial_price) %></strong></p>
+    <h4 class="text-success">Current Price: <strong><%= number_to_currency(@product.final_price) %></strong></h4>
+    <button class="btn btn-success btn-block">End Auction</button>
+  </div>
+</div>
+
+<h2>Bids</h2>
+<ul class="list-group">
+  <% @product.bids.each do |bid| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span>
+        <%= image_tag bid.user.avatar_url, class: 'rounded-circle mr-3', size: '30x30'  %>
+        <small>Bid by <%= bid.user.name %></small>
+      </span>
+
+      <span class="badge badge-success badge-pill"><%= number_to_currency(bid.value) %></span>
+    </li>
+  <% end %>
+
