@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :products, only: %i[index show]
+  resources :products, only: %i[index show] do
+    resources :bids, only: %i[create]
+  end
 
   root to: 'products#index'
 

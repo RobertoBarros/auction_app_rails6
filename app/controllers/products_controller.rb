@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     @bids = @product.bids.order(:created_at)
+    @bid = Bid.new
   end
 
   private
