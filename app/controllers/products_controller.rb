@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @bids = @product.bids.order(:created_at)
+    @bids = @product.bids.order(created_at: :desc)
     @bid = Bid.new
   end
 

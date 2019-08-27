@@ -8,20 +8,20 @@
     <small>Auctioned by <%= @product.user.name %></small>
     <div class="my-3"></div>
     <p class="text-secondary">Initial Price: <strong><%= number_to_currency(@product.initial_price) %></strong></p>
-    <h4 class="text-success">Current Price: <strong><%= number_to_currency(@product.final_price) %></strong></h4>
+    <h4 class="text-success">Current Price: <strong><span id='current-price'><%= number_to_currency(@product.final_price) %></span></strong></h4>
     <% if @product.user == current_user %>
       <button class="btn btn-success btn-block">End Auction</button>
     <% else %>
       <%= simple_form_for [@product, @bid], remote: true do |f| %>
-        <%= f.button :button, '+ $ 100', type: 'submit', name: 'bid_value', value: '100', class: 'btn btn-info' %>
-        <%= f.button :button, '+ $ 500', type: 'submit', name: 'bid_value', value: '500', class: 'btn btn-info' %>
-        <%= f.button :button, '+ $ 1000', type: 'submit', name: 'bid_value', value: '1000', class: 'btn btn-info' %>
+        <%= f.button :button, '+ $ 100', type: 'submit', name: 'bid_value', value: '100', class: 'btn btn-info mr-3' %>
+        <%= f.button :button, '+ $ 500', type: 'submit', name: 'bid_value', value: '500', class: 'btn btn-info mr-3' %>
+        <%= f.button :button, '+ $ 1000', type: 'submit', name: 'bid_value', value: '1000', class: 'btn btn-info mr-3' %>
       <% end %>
     <% end %>
   </div>
 </div>
 
 <h2>Bids</h2>
-<ul class="list-group">
+<ul class="list-group" id='bids'>
   <%= render @bids %>
 </ul>
