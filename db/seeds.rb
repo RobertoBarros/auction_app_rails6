@@ -27,7 +27,7 @@ puts "products created!"
 # Generate some Bids
 
 Product.all.each do |product|
-  5.times do
+  3.times do
     Bid.create!(product: product, user: User.where.not(id: product.user.id).sample, value: [100, 500, 1000].sample)
   end
 end
