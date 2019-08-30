@@ -1,3 +1,6 @@
+User.destroy_all
+Product.destroy_all
+
 USERS_COUNT = 10
 
 random_users = HTTParty.get("https://randomuser.me/api/?results=#{USERS_COUNT}")
