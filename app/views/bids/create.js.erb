@@ -1,12 +1,12 @@
-function addBid(newBid) {
-  const ul = document.getElementById('bids');
-  ul.insertAdjacentHTML('afterbegin', newBid);
-}
+// function addBid(newBid) {
+//   const ul = document.getElementById('bids');
+//   ul.insertAdjacentHTML('afterbegin', newBid);
+// }
 
-function updateCurrentPrice(newPrice) {
-  const currentPrice = document.getElementById('current-price');
-  currentPrice.textContent = newPrice;
-}
+// function updateCurrentPrice(newPrice) {
+//   const currentPrice = document.getElementById('current-price');
+//   currentPrice.textContent = newPrice;
+// }
 
-addBid('<%= j render "bids/bid", bid: @bid %>');
-updateCurrentPrice('<%= number_to_currency(@bid.product.final_price) %>')
+// addBid('<%= j render "bids/bid", bid: @bid %>');
+// updateCurrentPrice('<%= number_to_currency(@bid.product.final_price) %>')
